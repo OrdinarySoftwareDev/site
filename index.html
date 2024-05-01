@@ -1,7 +1,114 @@
 <html>
-    <head><title>my github site</title></head>
-    <body>
+    <head>
+        <title>my github site</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Banschrift:wght@400;500;600;700&display=swap');
+            body {
+                font-family: 'Banschrift', sans-serif;
+                color:aliceblue;
+                background-color:dodgerblue;
+            }
+            label {
+                font-weight: 1200;
+            }
+            #sigmabutton {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 9999;
+                opacity: 0.1;
+            }
+            body * {
+                opacity: 0; /* Initially hide the container */
+                transition: opacity 2.1s ease; /* Smooth transition effect */
+            }
+        </style>
+    </head>
+    <body onload="fadeIn()">
         <h1>hello guys i am devwing and welcome to my site</h1>
-        <p>it is indeed my github site</p>
+        <p>it is, in fact, my github site</p>
+        
+        <label for="number">please choose:</label>
+        <select name="" id="number">
+            <option>16</option>
+            <option>35</option>
+            <option>37</option>
+            <option>41</option>
+            <option>56</option>
+            <option>63</option>
+            <option>84</option>
+            <option>∑i=1∞αi+β∫0π sin(θ)dθ−∫−∞∞​e−x2[dx]</option>
+        </select>
+        <button id="sigmabutton">mystery button (100)</button>
+        <div id="output"></div>
+
+        <script>
+            function fadeIn() {
+                var elements = document.querySelectorAll("body *");
+                elements.forEach(function(element) {
+                    if (element.id !="sigmabutton") {
+                        element.style.opacity = 1; // Fade in by setting opacity to 1
+                    }
+                
+                });
+            }
+        
+
+            var remaining=99;
+            var addButton=document.getElementById("sigmabutton");
+            var has_user_sigmad=false;
+            addButton.addEventListener("click", function() {
+                addButton.textContent = "mystery button (" + remaining + ")"
+                if (remaining === 0) {
+                    if(!has_user_sigmad){has_user_sigmad=true;sigma();addButton.textContent="sigma status achieved"}else{alert("you cannot sigma if you are already sigma.")}
+                } else {
+                    remaining--;
+                    addButton.style.opacity=(100-remaining)/100 + 0.1
+                }
+            });
+
+            document.getElementById("number").addEventListener("change", function() {
+                var selectedOption = this.value;
+                var outputDiv = document.getElementById("output");
+                var customText = getCustomText(selectedOption);
+                outputDiv.innerHTML = "<p>you chose: " + selectedOption + ". " + customText + "</p>";
+                var paragraph = outputDiv.querySelector("p");
+                paragraph.style.opacity = 1;
+            });
+
+            function sigma() {
+                var selectElement = document.getElementById("number");
+                var newOption = document.createElement("option");
+                newOption.value = "";
+                newOption.textContent ="∑"
+                selectElement.appendChild(newOption);
+                console.warn("sigma awakened");
+            }            
+        
+            function getCustomText(option) {
+                switch(option) {
+                    case "16":
+                        return "think";
+                    case "35":
+                        return "that's 7 times 5";
+                    case "37":
+                        return "truly fascinating";
+                    case "41":
+                        return "i dont even know what to say about this one to be honest";
+                    case "56":
+                        return "even though it's even it sure does look odd";
+                    case "63":
+                        return "🍎";
+                    case "84":
+                        return "that's a pretty cool number not gonna lie";
+                    case "∑i=1∞αi+β∫0π sin(θ)dθ−∫−∞∞​e−x2[dx]":
+                        return "the numbers, mason, what do they mean";       
+                    case "":
+                        return "you are a true sigma.";
+                    default:
+                        return "how did you get this";
+                }
+            }
+        </script>
     </body>
 </html>
