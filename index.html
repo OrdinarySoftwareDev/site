@@ -62,7 +62,7 @@
             addButton.addEventListener("click", function() {
                 addButton.textContent = "mystery button (" + remaining + ")"
                 if (remaining === 0) {
-                    if(!has_user_sigmad){has_user_sigmad=true;sigma();addButton.textContent="sigma status achieved"}else{alert("you cannot sigma if you are already sigma.")}
+                    if(!has_user_sigmad){has_user_sigmad=true;sigma();addButton.textContent="ok"}else{alert("you cannot")}
                 } else {
                     remaining--;
                     addButton.style.opacity=(100-remaining)/100 + 0.1
@@ -84,7 +84,7 @@
                 newOption.value = "";
                 newOption.textContent ="∑"
                 selectElement.appendChild(newOption);
-                console.warn("sigma awakened");
+                console.warn("sigma");
             }            
         
             function getCustomText(option) {
@@ -104,9 +104,9 @@
                     case "84":
                         return "that's a pretty cool number not gonna lie";
                     case "∑i=1∞αi+β∫0π sin(θ)dθ−∫−∞∞​e−x2[dx]":
-                        return "the numbers, mason, what do they mean";       
+                        return "twin";       
                     case "":
-                        return "you are a true sigma.";
+                        return "congratulations";
                     default:
                         return "how did you get this";
                 }
@@ -114,3 +114,4 @@
         </script>
     </body>
 </html>
+
